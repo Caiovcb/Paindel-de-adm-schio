@@ -1,40 +1,43 @@
 from django.db import models
-from Clientes.models import ClientesTe
+#from Clientes.models import ClientesTe
 
 
 
-class Login(models.Model):
-    referencia = models.ForeignKey(ClientesTe,
-        on_delete=models.DO_NOTHING, verbose_name='Tipo')
+class Tipo(models.Model):
+    nome = models.CharField(max_length=60, verbose_name='Nome')
     descricao = models.TextField(
         null=True, blank=True)
 
+    def __str__(self) -> str:
+        return str(self.nome)
 
     class Meta:
         verbose_name = ('Tipo')
-        verbose_name_plural = ('Tipo')
-        ordering = ["referencia"]
+        verbose_name_plural = ('Tipos')
+        ordering = ["nome"]
 
-class RedeWifi(models.Model):
-    referencia = models.ForeignKey(ClientesTe,
-        on_delete=models.DO_NOTHING, verbose_name='Cliente')
+class Cliente(models.Model):
+    nome = models.CharField(max_length=60, verbose_name='Nome')
     descricao = models.TextField(
         null=True, blank=True)
 
+    def __str__(self) -> str:
+        return str(self.nome)
 
     class Meta:
         verbose_name = ('Cliente')
-        verbose_name_plural = ('Cliente')
-        ordering = ["referencia"]
+        verbose_name_plural = ('Clientes')
+        ordering = ["nome"]
 
-class ManutencaoClienteFinal(models.Model):
-    referencia = models.ForeignKey(ClientesTe,
-        on_delete=models.DO_NOTHING, verbose_name='Cliente')
+class Fornecedor(models.Model):
+    nome = models.CharField(max_length=60, verbose_name='Nome')
     descricao = models.TextField(
         null=True, blank=True)
 
+    def __str__(self) -> str:
+        return str(self.nome)
 
     class Meta:
         verbose_name = ('Fornecedor')
         verbose_name_plural = ('Fornecedores')
-        ordering = ["referencia"]
+        ordering = ["nome"]

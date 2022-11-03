@@ -1,17 +1,17 @@
 from django.contrib import admin
-from operacional.models import Login, RedeWifi, ManutencaoClienteFinal
+from categoria.models import Tipo, Cliente, Fornecedor
 
-@admin.register(Login)
-class Loginadmin(admin.ModelAdmin):
-   list_display = ['referencia',]
-   search_fields = ('referencia',)
+@admin.register(Tipo)
+class Tipoadmin(admin.ModelAdmin):
+   list_display = ['nome', 'descricao',]
+   search_fields = ('nome', 'descricao',)
 
-@admin.register(RedeWifi)
-class RedeWifiadmin(admin.ModelAdmin):
-    list_display = ['referencia',]
-    search_fields = ('referencia',)
+@admin.register(Cliente)
+class Clienteadmin(admin.ModelAdmin):
+    list_display = ['nome', 'descricao',]
+    search_fields = ('nome', 'descricao',)
     
-@admin.register(ManutencaoClienteFinal)
-class ManutencaoClienteFinaladmin(admin.ModelAdmin):
-    list_display = ['referencia',]
-    search_fields = ('referencia',)
+@admin.register(Fornecedor)
+class Fornecedoradmin(admin.ModelAdmin):
+    list_display = ['nome', 'descricao',]
+    search_fields = ('nome', 'descricao',)
