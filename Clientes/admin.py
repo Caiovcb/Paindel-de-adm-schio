@@ -4,6 +4,5 @@ from .models import ClientesTe
 
 @admin.register(ClientesTe)
 class Clientesadmin(admin.ModelAdmin):
-    list_display = ['nome','cnpj', 'email',]
-    search_fields = ('nome','cnpj','email',)
-
+    list_display = ['clientef','cnpj', 'email',]
+    search_fields = ('clientef','cnpj','email',)
