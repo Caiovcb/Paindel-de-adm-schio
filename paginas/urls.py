@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import IndexView
+from .views import PaginaLogin
 
 urlpatterns = [
     #path ('Endereço/', MinhaView.as_view(), nome='nome_da_url'),
-    path('', IndexView.as_view(), name='Index'),
+    path('', PaginaLogin.as_view(), name='Login'),
 ]
 
