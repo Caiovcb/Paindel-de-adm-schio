@@ -1,5 +1,5 @@
 from django.db import models
-from categoria.models import Tipo, Cliente, Fornecedor
+from categoria.models import Tipo, Cliente
 
 
 class Formularios(models.Model):
