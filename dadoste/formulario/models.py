@@ -1,5 +1,5 @@
 from django.db import models
-from dadoste.categoria.models import Tipo, Cliente
+from dadoste.categoria.models import Tipo, Cliente, Fornecedor
 
 
 class Formularios(models.Model):
@@ -7,6 +7,8 @@ class Formularios(models.Model):
         Tipo, on_delete=models.PROTECT)
     cliente = models.ForeignKey(
         Cliente, on_delete=models.PROTECT, null=True, blank=True)
+    fornecedor = models.ForeignKey(
+        Fornecedor, on_delete=models.PROTECT, null=True, blank=True)
     cnpj = models.CharField(
         max_length=14, verbose_name='CPF/CNPJ',
         null=True, blank=True)
