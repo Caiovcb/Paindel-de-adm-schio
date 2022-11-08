@@ -1,5 +1,5 @@
 from django.contrib import admin
-from categoria.models import Tipo, Cliente, Fornecedor
+from dadoste.categoria.models import Tipo, Cliente, Fornecedor
 
 @admin.register(Tipo)
 class Tipoadmin(admin.ModelAdmin):
