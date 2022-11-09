@@ -67,7 +67,7 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link text-black" href="{% url 'Login' %}">
+                            <a class="nav-link text-black" href="{% url 'index' %}">
                                 <i class="fa fa-home" aria-hidden="true"></i>
                                 Início
                             </a>
@@ -75,7 +75,7 @@
 
                         <!-- links do menu -->
                         <li class="nav-item ">
-                            <a class="nav-link text-black" href="{% url 'Login' %}">
+                            <a class="nav-link text-black" href="{% url 'Sobre' %}">
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 Sobre
                             </a>
@@ -98,14 +98,14 @@
                                 <span id="username">{{ request.user }}</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{% url 'Login' %}">
+                                <a class="dropdown-item" href="{% url 'index' %}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     Meus dados</a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                     Alterar senha</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'Login' %}">
+                                <a class="dropdown-item" href="{% url 'index' %}">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     Sair</a>
                             </div>
@@ -118,7 +118,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{% url 'Login' %}">
+                            <a class="nav-link" href="{% url 'index' %}">
                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 Login
                             </a>

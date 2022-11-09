@@ -1,0 +1,22 @@
+{% extends 'paginas/modelo.html'  %}
+
+{% load static %}
+
+{% block conteudo %}
+    <h3>Cadastro</h3>
+    <p class="lead">
+        formulario geral
+    </p>
+
+    <hr>
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submite" class="btn btn-primary">cadastrar</button></button>
+
+    </form>
+{% endblock %}
