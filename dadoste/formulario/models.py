@@ -29,6 +29,11 @@ class Formularios(models.Model):
     def __str__(self):
         return str(self.tipo)
 
+    def sub_nome(self):
+        return str()
+        
+
+
     class Meta:
         verbose_name = ('Formulario Geral')
         verbose_name_plural = ('Formulario Geral')
