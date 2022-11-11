@@ -26,115 +26,112 @@
 
 <body class="">
 
-        <!-- Bloco com o menu principal -->
-        {% block menu %}
-        <nav class="navbar navbar-expand-lg navbar-collapse shadow">
-            <div class="container3">
-                <a class="navbar-brand" href=" {% url 'listar' %}">
-                    <img src="{% static 'img/favicon.png' %}" height="70" alt="">
+<!-- Bloco com o menu principal -->
+{% block menu %}
+<nav class="navbar navbar-expand-lg navbar-collapse shadow">
+    <div class="container ">
+        <a class="navbar-brand" href=" {% url 'listar' %}">
+        <img src="{% static 'img/favicon.png' %}" height="70" alt="">
+        </a>
+    <ul class="navbar-nav mr-auto">         
+<!-- links do menu -->
+    <nav class="navbar navbar-expand-lg navbar-light "style="position: relative; left: 600px;">
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+        <a class=" btn btn-light nav-link mr-sm-2 " href="{% url 'listar' %}">Inicio</a>
+    </li>
+    <li>
+    <div class="dropdown" >
+        <button class="btn btn-light dropdown-toggle mr-sm-2  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Listas
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'cadastro' %}">Lista de Formularios</a>
+        <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Lista de Tipos</a>
+     <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Lista de Clientes</a>
+     <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Lista de Fornecedores</a>
+    </div>
+    </li>
+    <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        cadastrar
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'cadastro' %}">Formulario</a>
+        <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Tipo</a>
+     <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Cliente</a>
+     <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Fornecedor</a>
+   </div>
+ </div> 
+    </nav>
+                {% if request.user.is_authenticated %}                        
+            <li class="dropdown" style="position: relative; left: 610px; margin-bottom: -10px;">
+                <a class="btn btn-light nav-link dropdown-toggle text-black border-radius: 50px" href="#" id="navbarDropdownMenuLink"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="username">user {{ request.user }}</span>
                 </a>
-                   
-                    <ul class="navbar-nav mr-auto">
-                    
-
-                        <!-- links do menu -->
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-                              <span class="navbar-toggler-icon"></span>
-                            </button>
-                          
-                            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-                              <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                  <a class="nav-link" href="{% url 'listar' %}">Forumlarios</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">API REST</a>
-
-                                </li>
-                                <div class="dropdown">
-                                    <button class="btn btn dropdown-toggle bg-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <b>cadastrar </b>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="{% url 'cadastro' %}">Formulario</a>
-                                        <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Tipo</a>
-                                      <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Cliente</a>
-                                      <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Fornecedor</a>
-                                    </div>
-                                  </div>
-                              
-                              </ul>
-                                   </div>
-                          </nav>
-
-                        {% if request.user.is_authenticated %}                        
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span id="username">{{ request.user }}</span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{% url 'index' %}">
-                                    Meus dados</a>
-                                <a class="dropdown-item" href="#">
-                                    Alterar senha</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'index' %}">
-                                    Sair</a>
-                            </div>
-                        </li>
-                        {% else %}
-                        <li class="nav-item  ">
-                            <a class="nav-link text-black" href="{% url '' %}">
-                                Registrar
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-black" href="{% url 'index' %}">
-                                Login
-                            </a>
-                        </li>
-                        {% endif %}
-
-                    </ul>
-                </div>
-
-                <!-- fim do container -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'index' %}">
+                    Meus dados</a>
+                <a class="dropdown-item" href="#">
+                    Alterar senha</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'index' %}">
+                    Sair</a>
             </div>
-        </nav>
-        {% endblock %}
+        </li>
+        {% else %}
+        <li class="nav-item  ">
+            <a class="nav-link text-black" href="{% url '' %}">
+                Registrar
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-black" href="{% url 'index' %}">
+                Login
+            </a>
+        </li>
+        {% endif %}
+        </ul>
+    </div>
+    <!-- fim do container -->
+    </div>
+    </nav>
+{% endblock %}
 
 
         <!-- Bloco de conteúdo -->
-        <div class="container py-5">
+        
+        <div class="container col-sm-5 py-3">
+            
+            </style>
             {% block conteudo %}
-            <h3>Página inicial</h3>
+            <b>
+            <h1>Página inicial</h1>
+            </b>
             {% endblock %}
         </div>
-
+    
     </main>
 
     <footer class="mt-auto">
         
         <!-- Rodapé -->
         {% block rodape %}
-        <div class="container-fluid bg-light text-center p-3">
+        <div class="container-fluid text-center p-3">
             <div class="row">
                 <div class="col-md-4 mx-auto text-center">
-                    <img src="{% static 'img/ifpr.png' %}" height="48" class="float-left" alt="">
                     <p>
                         <span class="lead">TimeEnergy</span><br>
                     </p>
+                    <img src="{% static 'img/favicon.png' %}" height="30" class="float-center" alt="">
                 </div>
-                <!-- <div class="col-md text-left">
-                    <img src="{% static 'img/ifpr.png' %}" height="100" alt="">
-                </div> -->
-
-                </p>
+                            
+                     </p>
             </div>
             {% endblock %}
 

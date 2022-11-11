@@ -1,0 +1,41 @@
+{% extends 'paginas/modelo.html'  %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+    <div class="txt" style="text-align: center;" >
+    <h3><b>Editando Formulario</b></h3>
+    </div>
+    <hr>
+      <form action="" method="POST">
+        <div>
+          <table>
+              <tr>
+              <td>
+                  <div>
+                    <button type="submite" style="margin-bottom: 0px; margin-left: 250px; margin-right: 5px;" class="btn btn-success">Salvar Alteraçoes</button></button>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <button type="submite" style="margin-bottom: 0px;  margin-left: 5px; margin-right: 5px;" class="btn btn-dark">voltar</button></button>
+                  </div>
+              </td>       
+              </tr>
+          </table>
+      </div>
+        <h2>
+        </h2>
+        {% csrf_token %}
+
+      <p class="small">
+        {{ form|crispy }}
+        <button type="submite" style="margin-bottom: 0px; margin-left: 400px; margin-right: 5px;" class="btn btn-success">Salvar Alteraçoes</button></button>
+      </p>
+      
+      </form>
+    </table>
+</div>
+{% endblock %}

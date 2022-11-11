@@ -39,7 +39,7 @@ class FormularioUpdate(UpdateView):
         'validade_certificacao',
         'descricao',        
     ]
-    template_name = 'formulario/form.html'
+    template_name = 'formulario/editarform.html'
     success_url = reverse_lazy('listar')
 
 ########## DELETE ###########

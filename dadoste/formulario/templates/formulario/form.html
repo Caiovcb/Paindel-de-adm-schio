@@ -6,10 +6,27 @@
 
 {% block conteudo %}
 
-    <h3>Tipo de Informação</h3>
-    <h4>Cadastro de Tipagem <a href="{% url 'listar' %}" style="position: relative; left: 760px;"class="btn btn-light">Voltar</a></h4>
-    
-
+<div class="txt" style="text-align: center;" >
+  <h3><b>Formulario Geral</b></h3>
+  </div>
+<center>
+<div>
+    <table>
+        <tr>
+        <td>
+            <div>
+              <button type="submite" class="btn btn-success">Cadastrar</button></button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="submite" class="btn btn-dark">voltar</button></button>
+            </div>
+        </td>       
+        </tr>
+    </table>
+</div>
+</center>
     <hr>
       <form action="" method="POST">
 
@@ -17,9 +34,9 @@
 
         {{ form|crispy }}
         <hr class="">
-        <button type="submite" style="margin-top: 15px; margin-left: 15px; margin-right: 150px;" class="btn btn-primary">cadastrar</button></button>
-
-
+        <center>
+        <button type="submite" class="btn btn-success">Cadastrar</button></button>
+        </center>
     </form>
     </table>
 </div>

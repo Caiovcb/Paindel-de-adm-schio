@@ -6,8 +6,10 @@
 
 {% block conteudo %}
 
-    <h3>Tipo de Informação</h3>
-    <a href="{% url 'listar' %}" style="position: relative; left: 945px;"class="btn btn-primary">Lista de Formularios</a>
+<div class="txt" style="text-align: center;" >
+  <h3><b>Cadastrar Tipo de Informação</b></h3>
+  </div>
+<div>
 
 
     <hr>
@@ -17,9 +19,12 @@
 
         {{ form|crispy }}
         <hr class="">
-        <button type="submite" style="margin-top: 15px; margin-left: 15px; margin-right: 150px;" class="btn btn-primary">cadastrar</button></button>
 
-
+        <center>
+          <button type="submite"class="btn btn-success">Cadastrar</button></button>
+          <a href="{% url 'listar' %}" class="btn btn-dark">voltar</a>
+        </center>
+        
     </form>
     </table>
 </div>
