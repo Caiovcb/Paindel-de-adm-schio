@@ -5,7 +5,7 @@
 {% block conteudo %}
 
 <div class="txt" style="text-align: center;" >
-    <h3><b>Formularios Registrados</b></h3>
+    <h3><b>Lista de Tipos</b></h3>
     </div>
 <div>
 
@@ -16,27 +16,25 @@
     <button type="submit" class="btn btn-primary">Buscar</button>
     <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
 
-    <a href="{% url 'cadastro' %}" style="position: relative; left: 300px;"class="btn btn-success">cadastrar novo formulario</a>
+    <a href="{% url 'tipo-cadastro' %}" style="position: relative; left: 300px;"class="btn btn-success">cadastrar novo Tipo</a>
 
 <hr>
 
 <hr>
 <div class="table responsive"></div>
-    <table class="table table-striped ">
-
-        <tr>
-            <th>Tipo <a href="{% url 'tipo-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a> </th>
-            <th>Cliente  <a><a href="{% url 'cliente-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a>  </th>
-            <th>Fornecedor  <a><a href="{% url 'fornecedor-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a> </th>
-            <th>Nome</th>
-            <th>Opçoẽs</th>
-        </tr>
+    <table class="table table-striped"class="row no-gutters">
+        
+         <tr>
+            <div class="col-12 col-sm-6 col-md-8">
+                <th>Tipo <a href="{% url 'tipo-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a> </th>
+                </div>
+            <div class="col-6 col-md-4">
+                <th>Opçoẽs</th>
+                </div>
+            </tr>
         {% for formulario in object_list %}
         <tr>
             <td>{{ formulario.tipo }}</td>    
-            <td>{{ formulario.cliente}}</td>
-            <td>{{ formulario.fornecedor }}</td>
-            <td>{{ formulario.nome }}</td>
             <td>
                 <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" title="Editar">Editar</a>
                 <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm" title="Excluir">Excluir</a>
@@ -51,4 +49,3 @@
 
     </table>
 {% endblock %}
-

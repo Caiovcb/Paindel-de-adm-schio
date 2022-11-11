@@ -10,30 +10,40 @@
     </div>
     <hr>
       <form action="" method="POST">
+        <center>
         <div>
           <table>
               <tr>
-              <td>
-                  <div>
-                    <button type="submite" style="margin-bottom: 0px; margin-left: 250px; margin-right: 5px;" class="btn btn-success">Salvar Alteraçoes</button></button>
+                <td>
+                  <div>                  
+                    <button type="submite" class="btn btn-warning">Salvar Alteraçoes</button></button>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <button type="submite" style="margin-bottom: 0px;  margin-left: 5px; margin-right: 5px;" class="btn btn-dark">voltar</button></button>
+                      <button type="submite" style="margin-bottom: 0px;  margin-left: 5px; margin-right: 5px;" class="btn btn-dark">voltar</button></button>
                   </div>
+                <td>
+                  <div>
+                  </div>
+                </td>
               </td>       
               </tr>
           </table>
       </div>
+      </center>
+      
         <h2>
         </h2>
         {% csrf_token %}
 
       <p class="small">
         {{ form|crispy }}
-        <button type="submite" style="margin-bottom: 0px; margin-left: 400px; margin-right: 5px;" class="btn btn-success">Salvar Alteraçoes</button></button>
+        <center>
+        <button type="submite"  class="btn btn-warning">Salvar Alteraçoes</button></button>
+        </center>     
       </p>
+
       
       </form>
     </table>

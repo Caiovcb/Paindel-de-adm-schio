@@ -41,22 +41,22 @@
         </button>
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
         <a class=" btn btn-light nav-link mr-sm-2 " href="{% url 'listar' %}">Inicio</a>
-    </li>
+
     <li>
-    <div class="dropdown" >
-        <button class="btn btn-light dropdown-toggle mr-sm-2  " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Listas
-        </button>
+<div class="dropdown" >
+        <button class="btn btn-light dropdown-toggle mr-sm-2  "
+            type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Listas</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="{% url 'cadastro' %}">Lista de Formularios</a>
-        <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Lista de Tipos</a>
-     <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Lista de Clientes</a>
-     <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Lista de Fornecedores</a>
-    </div>
+            <a class="dropdown-item" href="{% url 'cadastro' %}">Lista de Formularios</a>
+            <a class="dropdown-item" href="{% url 'listar-tipo' %}">Lista de Tipos</a>
+            <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Lista de Clientes</a>
+            <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Lista de Fornecedores</a>
+    
+</div>
     </li>
-    <div class="dropdown">
+<div class="dropdown">
         <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         cadastrar
         </button>
@@ -65,8 +65,8 @@
         <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Tipo</a>
      <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Cliente</a>
      <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Fornecedor</a>
-   </div>
- </div> 
+</div>
+ 
     </nav>
                 {% if request.user.is_authenticated %}                        
             <li class="dropdown" style="position: relative; left: 610px; margin-bottom: -10px;">
@@ -106,7 +106,7 @@
 
         <!-- Bloco de conteúdo -->
         
-        <div class="container col-sm-5 py-3">
+        <div class="container col-sm-7 py-3">
             
             </style>
             {% block conteudo %}

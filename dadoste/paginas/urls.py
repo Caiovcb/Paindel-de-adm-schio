@@ -1,6 +1,6 @@
 from django.urls import path
 from dadoste.formulario.views import FormularioCreate, FormularioUpdate, FormularioDelete
-from dadoste.categoria.views import ClienteCreate, ClienteUpdate, FornecedorCreate, FornecedorUpdate, TipoCreate, TipoUpdate
+from dadoste.categoria.views import ClienteCreate, ClienteDelete, ClienteLista, ClienteUpdate, FornecedorCreate, FornecedorDelete, FornecedorLista, FornecedorUpdate, TipoCreate, TipoDelete, TipoLista, TipoUpdate
 from .views import Index, Sobre
 from dadoste.formulario.views import FormularioLista
 urlpatterns = [
@@ -17,10 +17,16 @@ urlpatterns = [
     path('tipo/update/<int:pk>/', TipoUpdate.as_view(), name='tipo-update' ),
     path('cliente/update/<int:pk>/', ClienteUpdate.as_view(), name='cliente-update' ),
     path('fornecedor/update/<int:pk>/', FornecedorUpdate.as_view(), name='fornecedor-update' ),
-
+    #DELETE
     path('formulario/excluir/<int:pk>/', FormularioDelete.as_view(), name='excluir' ),
-
+    path('tipo/excluir/<int:pk>/', TipoDelete.as_view(), name='excluir-tipo' ),
+    path('cliente/excluir/<int:pk>/', ClienteDelete.as_view(), name='excluir-cliente' ),
+    path('fornecedor/excluir/<int:pk>/', FornecedorDelete.as_view(), name='excluir-fornecedor' ),
+    #LISTA
     path('', FormularioLista.as_view(), name='listar' ),
+    path('tipo/listar', TipoLista.as_view(), name='listar-tipo' ),
+    path('cliente/listar', ClienteLista.as_view(), name='listar-cliente' ),
+    path('fornecedor/listar', FornecedorLista.as_view(), name='listar-fornecedor' ),
 
 ]
 

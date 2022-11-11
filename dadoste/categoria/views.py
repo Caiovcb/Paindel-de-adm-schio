@@ -35,7 +35,7 @@ class TipoUpdate(UpdateView):
     fields=[
         'nome',     
     ]
-    template_name = 'categoria/tipoform.html'
+    template_name = 'categoria/tipoformupdate.html'
     success_url = reverse_lazy('listar')
 
 class ClienteUpdate(UpdateView):
@@ -43,7 +43,7 @@ class ClienteUpdate(UpdateView):
     fields=[
         'nome',     
     ]
-    template_name = 'categoria/clienteform.html'
+    template_name = 'categoria/clienteformupdate.html'
     success_url = reverse_lazy('listar')
 
 class FornecedorUpdate(UpdateView):
@@ -51,8 +51,36 @@ class FornecedorUpdate(UpdateView):
     fields=[
         'nome',     
     ]
-    template_name = 'categoria/fornecedorform.html'
+    template_name = 'categoria/fornecedorformupdate.html'
     success_url = reverse_lazy('listar')
 
 #DELETE#
     
+class TipoDelete(DeleteView):
+    model = Tipo
+    template_name = 'categoria/fornecedorformexcluir.html'
+    success_url = reverse_lazy('listar')
+
+class ClienteDelete(DeleteView):
+    model = Cliente
+    template_name = 'categoria/fornecedorformexcluir.html'
+    success_url = reverse_lazy('listar')
+
+class FornecedorDelete(DeleteView):
+    model = Fornecedor
+    template_name = 'categoria/fornecedorformexcluir.html'
+    success_url = reverse_lazy('listar')
+
+#### LISTA   ##########
+
+class TipoLista(ListView):
+    model = Tipo
+    template_name = 'categoria/listas/listaformulario.html'
+
+class ClienteLista(ListView):
+    model = Cliente
+    template_name = 'categoria/listas/listaformulario.html'
+
+class FornecedorLista(ListView):
+    model = Fornecedor
+    template_name = 'categoria/listas/listaformulario.html'
