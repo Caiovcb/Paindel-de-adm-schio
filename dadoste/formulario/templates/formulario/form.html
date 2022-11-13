@@ -9,35 +9,39 @@
 <div class="txt" style="text-align: center;" >
   <h3><b>Formulario Geral</b></h3>
   </div>
-<center>
-<div>
-    <table>
-        <tr>
-        <td>
-            <div>
-              <button type="submite" class="btn btn-success">Cadastrar</button></button>
-            </div>
-          </td>
-          <td>
-            <div>
-              <button type="submite" class="btn btn-dark">voltar</button></button>
-            </div>
-        </td>       
-        </tr>
-    </table>
-</div>
-</center>
     <hr>
       <form action="" method="POST">
+        <center>
+          <div>
+              <table>
+                  <tr>
+                  <td>
+                      <div>
+                        <button type="submite" class="btn btn-success">Cadastrar</button></button>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <button type="submite" class="btn btn-dark">voltar</button></button>
+                      </div>
+                  </td>       
+                  </tr>
+              </table>
+          </div>
+          </center>
 
         {% csrf_token %}
-
+        <table >
         {{ form|crispy }}
+        </table>
+
         <hr class="">
         <center>
         <button type="submite" class="btn btn-success">Cadastrar</button></button>
         </center>
     </form>
-    </table>
+    
+    </table>    
+
 </div>
 {% endblock %}

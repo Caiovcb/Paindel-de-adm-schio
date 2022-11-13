@@ -75,12 +75,12 @@ class FornecedorDelete(DeleteView):
 
 class TipoLista(ListView):
     model = Tipo
-    template_name = 'categoria/listas/listaformulario.html'
+    template_name = 'categoria/listas/formulario.html'
 
 class ClienteLista(ListView):
     model = Cliente
-    template_name = 'categoria/listas/listaformulario.html'
+    template_name = 'categoria/listas/formulario.html'
 
 class FornecedorLista(ListView):
     model = Fornecedor
-    template_name = 'categoria/listas/listaformulario.html'
+    template_name = 'categoria/listas/formulario.html'

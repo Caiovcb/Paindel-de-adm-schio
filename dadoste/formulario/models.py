@@ -6,7 +6,7 @@ class Formularios(models.Model):
     tipo = models.ForeignKey(
         Tipo, on_delete=models.PROTECT)
     cliente = models.ForeignKey(
-        Cliente, on_delete=models.PROTECT, null=True, blank=True)
+        Cliente, on_delete=models.PROTECT, null=True, blank=True, unique=True)
     fornecedor = models.ForeignKey(
         Fornecedor, on_delete=models.PROTECT, null=True, blank=True)
     cnpj = models.CharField(

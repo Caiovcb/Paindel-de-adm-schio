@@ -22,24 +22,33 @@
 
 <hr>
 <div class="table responsive"></div>
-    <table class="table table-striped ">
+    <table class="table table-striped " border="2px">
 
-        <tr>
-            <th>Tipo <a href="{% url 'tipo-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a> </th>
-            <th>Cliente  <a><a href="{% url 'cliente-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a>  </th>
-            <th>Fornecedor  <a><a href="{% url 'fornecedor-cadastro' %}" class="btn btn-success btn-sm" title="Editar"><b>+</b></a></a> </th>
-            <th>Nome</th>
-            <th>Opçoẽs</th>
+        <tr>            
+            <th width="20%" height="40"><center>Tipo  
+                <a href="{% url 'tipo-cadastro' %}" class="btn btn-success btn-sm"
+                title="Editar"><b>+</b></a></a></center></th>
+            <th width="25%" height="40"><center>Cliente  
+                <a><a href="{% url 'cliente-cadastro' %}" class="btn btn-success btn-sm" 
+                    title="Editar"><b>+</b></a></a></center></th>
+            <th width="20%" height="40"><center>Fornecedor  
+                <a><a href="{% url 'fornecedor-cadastro' %}" class="btn btn-success btn-sm" 
+                    title="Editar"><b>+</b></a></a></center></th>
+            <th width="15%" height="40"><center>Nome</center></th>
+            <th width="20%" height="40"><center>Opçoẽs</center></th>            
         </tr>
         {% for formulario in object_list %}
         <tr>
-            <td>{{ formulario.tipo }}</td>    
-            <td>{{ formulario.cliente}}</td>
+            <td height="">{{ formulario.tipo }}</td>    
+            <td>{{ formulario.cliente }}</td>
             <td>{{ formulario.fornecedor }}</td>
             <td>{{ formulario.nome }}</td>
             <td>
-                <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" title="Editar">Editar</a>
-                <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm" title="Excluir">Excluir</a>
+                <center>
+                <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" 
+                    title="Editar">Editar</a>
+                <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm " 
+                    title="Excluir">Excluir</a>
             </td>
         </tr>
         {% empty %}
