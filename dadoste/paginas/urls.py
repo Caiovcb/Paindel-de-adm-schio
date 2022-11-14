@@ -5,7 +5,7 @@ from .views import Index, Sobre
 from dadoste.formulario.views import FormularioLista
 urlpatterns = [
     #path ('Endereço/', MinhaView.as_view(), nome='nome_da_url'),
-    path('xxx', Index.as_view(), name='index'),
+    path('index', Index.as_view(), name='index'),
     path('sobre', Sobre.as_view(), name='Sobre'),
     #CREATE
     path('formulario/cadastro', FormularioCreate.as_view(), name='cadastro'),

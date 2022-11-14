@@ -12,11 +12,12 @@
 <div>
 
 <form action="?" method="GET"></form>
+    {% csrf_token %}
 
     <input type="text" name="tipo" id="" value=" {{ request.GET.tipo }}" class="p-1 border" 
     autocomplete="off" size="30" placeholder="Busca">
     <button type="submit" class="btn btn-primary">Buscar</button>
-    <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
+    <a href="{% url 'listar-tipo' %}" class="btn btn-light">limpar</a>
     <a href="{% url 'tipo-cadastro' %}" class="btn btn-success">cadastrar novo Tipo</a>
 
 

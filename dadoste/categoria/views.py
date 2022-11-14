@@ -10,7 +10,7 @@ class TipoCreate(CreateView):
         'nome',     
     ]
     template_name = 'categoria/tipoform.html'
-    success_url = reverse_lazy('listar')
+    success_url = reverse_lazy('listar-tipo')
 
 class ClienteCreate(CreateView):
     model = Cliente
@@ -18,7 +18,7 @@ class ClienteCreate(CreateView):
         'nome',     
     ]
     template_name = 'categoria/clienteform.html'
-    success_url = reverse_lazy('listar')
+    success_url = reverse_lazy('listar-cliente')
 
 class FornecedorCreate(CreateView):
     model = Fornecedor
@@ -26,7 +26,7 @@ class FornecedorCreate(CreateView):
         'nome',     
     ]
     template_name = 'categoria/fornecedorform.html'
-    success_url = reverse_lazy('listar')
+    success_url = reverse_lazy('listar-fornecedor')
 
 #UPDATE#
 

@@ -28,79 +28,84 @@
 
 <!-- Bloco com o menu principal -->
 {% block menu %}
-<nav class="navbar navbar-expand-lg navbar-collapse shadow">
+<nav class="navbar">
     <div class="container ">
+        {% if request.user.is_authenticated %}
         <a class="navbar-brand" href=" {% url 'listar' %}">
-        <img src="{% static 'img/favicon.png' %}" height="70" alt="">
+        {% endif %}
+        <img src="{% static 'img/favicon.png' %}" height="60" alt="">
         </a>
-    <ul class="navbar-nav mr-auto">         
 <!-- links do menu -->
-    <nav class="navbar navbar-expand-lg navbar-light "style="position: relative; left: 600px;">
+
+
+<ul class="navbar-nav">         
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto">
-        <a class=" btn btn-light nav-link mr-sm-2 " href="{% url 'listar' %}">Inicio</a>
-
-    <li>
-<div class="dropdown" >
-        <button class="btn btn-light dropdown-toggle mr-sm-2  "
-            type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Listas</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{% url 'listar' %}">Formularios</a>
-            <a class="dropdown-item" href="{% url 'listar-tipo' %}">Tipos</a>
-            <a class="dropdown-item" href="{% url 'listar-cliente' %}">Clientes</a>
-            <a class="dropdown-item" href="{% url 'listar-fornecedor' %}">Fornecedores</a>
-    
-</div>
-    </li>
-<div class="dropdown">
-        <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        cadastrar
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="{% url 'cadastro' %}">Formulario</a>
-        <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Tipo</a>
-     <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Cliente</a>
-     <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Fornecedor</a>
-</div>
- 
-    </nav>
-                {% if request.user.is_authenticated %}                        
-            <li class="dropdown" style="position: relative; left: 610px; margin-bottom: -10px;">
-                <a class="btn btn-light nav-link dropdown-toggle text-black border-radius: 50px" href="#" id="navbarDropdownMenuLink"
-                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span id="username">user {{ request.user }}</span>
-                </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'index' %}">
-                    Meus dados</a>
-                <a class="dropdown-item" href="#">
-                    Alterar senha</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'index' %}">
-                    Sair</a>
+        {% if request.user.is_authenticated %}
+        <ul class="navbar-nav">
+            <a class=" btn btn-light nav-link mr-sm-2 " href="{% url 'listar' %}">Inicio</a>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <li>
+            <div class="dropdown" >
+                <button class="btn btn-light dropdown-toggle mr-sm-2  "
+                    type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Listas
+                </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'listar' %}">Formularios</a>
+                <a class="dropdown-item" href="{% url 'listar-tipo' %}">Tipos</a>
+                <a class="dropdown-item" href="{% url 'listar-cliente' %}">Clientes</a>
+                <a class="dropdown-item" href="{% url 'listar-fornecedor' %}">Fornecedores</a>                
             </div>
         </li>
-        {% else %}
-        <li class="nav-item  ">
-            <a class="nav-link text-black" href="{% url '' %}">
-                Registrar
-            </a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link text-black" href="{% url 'index' %}">
-                Login
-            </a>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <li>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle mr-sm-2 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    cadastrar
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'cadastro' %}">Formulario</a>
+                    <a class="dropdown-item" href="{% url 'tipo-cadastro' %}">Tipo</a>
+                    <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Cliente</a>
+                    <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Fornecedor</a>
+                </div>
         </li>
         {% endif %}
-        </ul>
-    </div>
-    <!-- fim do container -->
-    </div>
+        <li>    
+            <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}                        
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn btn-success text-white" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="username">{{ request.user }}</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'login' %}">Meus dados</a>
+                        <a class="dropdown-item" href="#">Alterar senha</a>                    
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item  ">
+                    <a class="nav-link text-black" href="{% url 'login' %}">
+                        Registrar</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-black" href="{% url 'login' %}">
+                        Entrar</a>
+                </li>
+                {% endif %}
+            </ul>
+        </li>
     </nav>
+</ul>
 {% endblock %}
 
 
