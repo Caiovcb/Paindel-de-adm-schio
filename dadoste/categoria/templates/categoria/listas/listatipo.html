@@ -1,0 +1,52 @@
+{% extends 'paginas/modelo.html'  %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+
+<div class="container col-lg-8"> 
+
+<div class="txt" style="text-align: center;" >
+    <h3><b>Lista de Tipos</b></h3>
+    </div>
+<div>
+
+<form action="?" method="GET"></form>
+
+    <input type="text" name="tipo" id="" value=" {{ request.GET.tipo }}" class="p-1 border" 
+    autocomplete="off" size="30" placeholder="Busca">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+    <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
+    <a href="{% url 'tipo-cadastro' %}" class="btn btn-success">cadastrar novo Tipo</a>
+
+
+<hr>
+<div class="table responsive"></div>
+    <table class="table table-striped " border="2px">
+
+        <tr> 
+            <th width="60%"><center>Tipo</center></th>   
+            <th width="40%"><center>Opçoẽs</center></th>              
+        </tr>
+        {% for formulario in object_list %}
+        <tr>
+            <td>{{ formulario.nome }}</td>
+            <td>
+                <center>
+                <a href="{% url 'tipo-update' formulario.pk %}" class="btn btn-warning btn-sm" 
+                    title="Editar">Editar</a>
+                <a href="{% url 'excluir-tipo' formulario.pk %}" class="btn btn-danger btn-sm " 
+                    title="Excluir">Excluir</a>
+                </center>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">Nenhum registro!</td> ></td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+{% endblock %}

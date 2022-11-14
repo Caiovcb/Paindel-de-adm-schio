@@ -5,27 +5,23 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
-
-<div class="txt" style="text-align: center;" >
-  <h3><b>Editando Fornecedor</b></h3>
-  </div>
-<div>
-
+    <h3>Excluir</h3>
+    <p class="lead">
+        Confirme para excluir.
+    </p>
 
     <hr>
-      <form action="" method="POST">
+
+    <form action="" method="POST">
+        <p>
+            Deseja excluir o Tipo: <b>{{ object }}</b> ?
+        </p>
 
         {% csrf_token %}
 
         {{ form|crispy }}
-        <hr class="">
 
-        <center>
-          <button type="submite"class="btn btn-success">Cadastrar</button></button>
-          <a href="{% url 'listar' %}" class="btn btn-dark">voltar</a>
-        </center>
-        
+        <button type="submite" class="btn btn-danger">Excluir</button>
+
     </form>
-    </table>
-</div>
 {% endblock %}

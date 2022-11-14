@@ -6,6 +6,8 @@
 
 {% block conteudo %}
 
+
+
 <div class="txt" style="text-align: center;" >
   <h3><b>Cadastrar Tipo de Informação</b></h3>
   </div>
@@ -16,16 +18,19 @@
       <form action="" method="POST">
 
         {% csrf_token %}
-        <a> {{ form|crispy }} <a href="{% url 'listar' %}" class="btn btn-dark">voltar</a></a>
-        <a><a href="{% url 'listar' %}" class="btn btn-dark">voltar</a></a>
-        <hr class="">
 
-        <center>
-          <button type="submite"class="btn btn-success">Cadastrar</button></button>
-          <a href="{% url 'listar-tipo' %}" class="btn btn-dark">voltar</a>
-        </center>
-        
-    </form>
-    </table>
-</div>
+        <div class="table responsive">
+        </div>
+        <table class="table table-striped " border="2px">
+          <tr>            
+            <th><center> {{ form.as_p }}</center></th>          
+            <th width="20%" height="40px">            
+            <center>
+              <button type="submite"class="btn btn-success">Cadastrar</button></button>
+              <a href="{% url 'listar-tipo' %}" class="btn btn-dark">voltar</a>
+            </center>
+            </th>            
+          </tr>
+      </form>       
+      </table>
 {% endblock %}

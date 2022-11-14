@@ -7,7 +7,7 @@
 <div class="container col-lg-8"> 
 
 <div class="txt" style="text-align: center;" >
-    <h3><b>Lista de Tipos</b></h3>
+    <h3><b>Lista de Fornecedores</b></h3>
     </div>
 <div>
 
@@ -17,7 +17,7 @@
     autocomplete="off" size="30" placeholder="Busca">
     <button type="submit" class="btn btn-primary">Buscar</button>
     <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
-    <a href="{% url 'tipo-cadastro' %}" class="btn btn-success">cadastrar novo Tipo</a>
+    <a href="{% url 'fornecedor-cadastro' %}" class="btn btn-success">cadastrar novo fornecedor</a>
 
 
 <hr>
@@ -25,7 +25,7 @@
     <table class="table table-striped " border="2px">
 
         <tr> 
-            <th width="60%"><center>Nome</center></th>   
+            <th width="60%"><center>Fornecedor</center></th>   
             <th width="40%"><center>Opçoẽs</center></th>              
         </tr>
         {% for formulario in object_list %}
@@ -33,10 +33,11 @@
             <td>{{ formulario.nome }}</td>
             <td>
                 <center>
-                <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" 
+                <a href="{% url 'fornecedor-update' formulario.pk %}" class="btn btn-warning btn-sm" 
                     title="Editar">Editar</a>
-                <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm " 
+                <a href="{% url 'excluir-fornecedor' formulario.pk %}" class="btn btn-danger btn-sm " 
                     title="Excluir">Excluir</a>
+                </center>
             </td>
         </tr>
         {% empty %}

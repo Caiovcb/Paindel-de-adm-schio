@@ -6,42 +6,33 @@
 
 {% block conteudo %}
 
+<!-- FORMULARIO GERAL CADASTRO-->
+
+<div class="container col-lg-8">
+
 <div class="txt" style="text-align: center;" >
-  <h3><b>Formulario Geral</b></h3>
+  <h3><b>Cadastrar Formulario</b></h3>
   </div>
-    <hr>
-      <form action="" method="POST">
-        <center>
-          <div>
-              <table>
-                  <tr>
-                  <td>
-                      <div>
-                        <button type="submite" class="btn btn-success">Cadastrar</button></button>
-                      </div>
-                    </td>
-                    <td>
-                      <div>
-                        <button type="submite" class="btn btn-dark">voltar</button></button>
-                      </div>
-                  </td>       
-                  </tr>
-              </table>
-          </div>
-          </center>
+<div>
 
-        {% csrf_token %}
-        <table >
-        {{ form|crispy }}
-        </table>
 
-        <hr class="">
-        <center>
-        <button type="submite" class="btn btn-success">Cadastrar</button></button>
-        </center>
-    </form>
-    
-    </table>    
+<form action="" method="POST">
+<div class="table responsive"></div>
+  <table class="table table-striped " border="2px">    
+      <th width="30%" height="25%"><center>{{ form.as_table }}</center>           
 
+{% csrf_token %}
+<center>
+  <button type="submite"class="btn btn-success">Cadastrar</button></button>
+  <a href="{% url 'listar' %}" class="btn btn-dark">voltar</a>
+</center>
+<hr>
+
+</form>
+</table>
+
+</div>
+</div>
+</div>
 </div>
 {% endblock %}

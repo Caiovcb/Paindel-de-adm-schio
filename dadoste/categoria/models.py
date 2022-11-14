@@ -1,10 +1,9 @@
-from django.db import models
 #from Clientes.models import ClientesTe
-
+from django.db import models
 
 
 class Tipo(models.Model):
-    nome = models.CharField(max_length=60, verbose_name='Nome')
+    nome = models.CharField(max_length=60, verbose_name='Tipo de Informação * ')
     descricao = models.TextField(
         null=True, blank=True)
 
@@ -17,7 +16,7 @@ class Tipo(models.Model):
         ordering = ["nome"]
 
 class Cliente(models.Model):
-    nome = models.CharField(max_length=60, verbose_name='Nome')
+    nome = models.CharField(max_length=60, verbose_name='Cliente * ')
     descricao = models.TextField(
         null=True, blank=True)
 
@@ -30,7 +29,7 @@ class Cliente(models.Model):
         ordering = ["nome"]
 
 class Fornecedor(models.Model):
-    nome = models.CharField(max_length=60, verbose_name='Nome')
+    nome = models.CharField(max_length=60, verbose_name='Fornecedor * ')
     descricao = models.TextField(
         null=True, blank=True)
 

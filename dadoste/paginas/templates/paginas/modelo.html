@@ -49,10 +49,10 @@
             type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Listas</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{% url 'cadastro' %}">Lista de Formularios</a>
-            <a class="dropdown-item" href="{% url 'listar-tipo' %}">Lista de Tipos</a>
-            <a class="dropdown-item" href="{% url 'cliente-cadastro' %}">Lista de Clientes</a>
-            <a class="dropdown-item" href="{% url 'fornecedor-cadastro' %}">Lista de Fornecedores</a>
+            <a class="dropdown-item" href="{% url 'listar' %}">Formularios</a>
+            <a class="dropdown-item" href="{% url 'listar-tipo' %}">Tipos</a>
+            <a class="dropdown-item" href="{% url 'listar-cliente' %}">Clientes</a>
+            <a class="dropdown-item" href="{% url 'listar-fornecedor' %}">Fornecedores</a>
     
 </div>
     </li>
@@ -106,7 +106,10 @@
 
         <!-- Bloco de conteúdo -->
         
-        <div class="container">
+        <div class="container h-1">
+             
+            <hr>
+
             
             </style>
             {% block conteudo %}

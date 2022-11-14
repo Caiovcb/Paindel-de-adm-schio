@@ -36,7 +36,7 @@ class TipoUpdate(UpdateView):
         'nome',     
     ]
     template_name = 'categoria/tipoformupdate.html'
-    success_url = reverse_lazy('listar')
+    success_url = reverse_lazy('listar-tipo')
 
 class ClienteUpdate(UpdateView):
     model = Cliente
@@ -44,7 +44,7 @@ class ClienteUpdate(UpdateView):
         'nome',     
     ]
     template_name = 'categoria/clienteformupdate.html'
-    success_url = reverse_lazy('listar')
+    success_url = reverse_lazy('listar-cliente')
 
 class FornecedorUpdate(UpdateView):
     model = Fornecedor
@@ -52,35 +52,35 @@ class FornecedorUpdate(UpdateView):
         'nome',     
     ]
     template_name = 'categoria/fornecedorformupdate.html'
-    success_url = reverse_lazy('listar')
+    success_url = reverse_lazy('listar-fornecedor')
 
 #DELETE#
     
 class TipoDelete(DeleteView):
     model = Tipo
-    template_name = 'categoria/fornecedorformexcluir.html'
-    success_url = reverse_lazy('listar')
+    template_name = 'categoria/tipoformdelete.html'
+    success_url = reverse_lazy('listar-tipo')
 
 class ClienteDelete(DeleteView):
     model = Cliente
-    template_name = 'categoria/fornecedorformexcluir.html'
-    success_url = reverse_lazy('listar')
+    template_name = 'categoria/clienteformdelete.html'
+    success_url = reverse_lazy('listar-cliete')
 
 class FornecedorDelete(DeleteView):
     model = Fornecedor
-    template_name = 'categoria/fornecedorformexcluir.html'
-    success_url = reverse_lazy('listar')
+    template_name = 'categoria/fornecedorformdelete.html'
+    success_url = reverse_lazy('listar-fornecedor')
 
 #### LISTA   ##########
 
 class TipoLista(ListView):
     model = Tipo
-    template_name = 'categoria/listas/formulario.html'
+    template_name = 'categoria/listas/listatipo.html'
 
 class ClienteLista(ListView):
     model = Cliente
-    template_name = 'categoria/listas/formulario.html'
+    template_name = 'categoria/listas/listaclientes.html'
 
 class FornecedorLista(ListView):
     model = Fornecedor
-    template_name = 'categoria/listas/formulario.html'
+    template_name = 'categoria/listas/listafornecedor.html'
