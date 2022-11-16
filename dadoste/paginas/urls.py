@@ -1,8 +1,9 @@
 from django.urls import path
-from dadoste.formulario.views import FormularioCreate, FormularioUpdate, FormularioDelete
+from dadoste.formulario.views import FormularioAteracaoDetalheDelete, FormularioCreate, FormularioUpdate, FormularioDelete, FormularioLista
 from dadoste.categoria.views import ClienteCreate, ClienteDelete, ClienteLista, ClienteUpdate, FornecedorCreate, FornecedorDelete, FornecedorLista, FornecedorUpdate, TipoCreate, TipoDelete, TipoLista, TipoUpdate
 from .views import Index, Sobre
-from dadoste.formulario.views import FormularioLista
+from dadoste.formulario.views import FormularioListaCriacao
+
 urlpatterns = [
     #path ('Endereço/', MinhaView.as_view(), nome='nome_da_url'),
     path('index', Index.as_view(), name='index'),
@@ -27,6 +28,9 @@ urlpatterns = [
     path('tipo/listar', TipoLista.as_view(), name='listar-tipo' ),
     path('cliente/listar', ClienteLista.as_view(), name='listar-cliente' ),
     path('fornecedor/listar', FornecedorLista.as_view(), name='listar-fornecedor' ),
+    #SERIALIZER
+    path('rest/', FormularioListaCriacao.as_view() , name='get-rest' ),
+    path('rest/<int:pk>/', FormularioAteracaoDetalheDelete.as_view(), name='alteracao-rest'),
 
 ]
 

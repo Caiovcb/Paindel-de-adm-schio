@@ -1,8 +1,16 @@
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.list import ListView
 
-from .models import Formularios
 from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.list import ListView
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from rest_framework import generics
+from rest_framework import status
+from dadoste.formulario.models import Formularios
+from dadoste.formulario.serializers import FormularioSerializers
+from rest_framework.exceptions import NotFound
 
 ########## CREATE ###########
 
@@ -65,3 +73,15 @@ class FormularioLista(ListView):
         else:
             formulario = formulario.objects.all()   
         return formulario'''
+
+
+
+class FormularioListaCriacao(generics.ListCreateAPIView):
+    queryset = Formularios.objects.all()
+    serializer_class = FormularioSerializers
+ 
+class FormularioAteracaoDetalheDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Formularios.objects.all()
+    serializer_class = FormularioSerializers
+
+

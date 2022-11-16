@@ -77,6 +77,17 @@
                 </div>
         </li>
         {% endif %}
+        {% if request.user.is_authenticated %}
+        <li>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle mr-sm-2 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    API
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'get-rest' %}">GET</a>
+                </div>
+        </li>
+        {% endif %}
         <li>    
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}                        
