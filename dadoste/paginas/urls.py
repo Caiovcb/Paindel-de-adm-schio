@@ -1,5 +1,5 @@
 from django.urls import path
-from dadoste.formulario.views import FormularioAteracaoDetalheDelete, FormularioCreate, FormularioUpdate, FormularioDelete, FormularioLista
+from dadoste.formulario.views import FormularioAteracaoDetalheDelete, FormularioCreate, FormularioUpdate, FormularioDelete, FormularioLista, FormularioVer
 from dadoste.categoria.views import ClienteCreate, ClienteDelete, ClienteLista, ClienteUpdate, FornecedorCreate, FornecedorDelete, FornecedorLista, FornecedorUpdate, TipoCreate, TipoDelete, TipoLista, TipoUpdate
 from .views import Index, Sobre
 from dadoste.formulario.views import FormularioListaCriacao
@@ -15,6 +15,7 @@ urlpatterns = [
     path('fornecedor/cadastro', FornecedorCreate.as_view(), name='fornecedor-cadastro'),
     #UPDATE
     path('formulario/update/<int:pk>/', FormularioUpdate.as_view(), name='update' ),
+    path('formulario/ver/<int:pk>/', FormularioVer.as_view(), name='ver-form' ),
     path('tipo/update/<int:pk>/', TipoUpdate.as_view(), name='tipo-update' ),
     path('cliente/update/<int:pk>/', ClienteUpdate.as_view(), name='cliente-update' ),
     path('fornecedor/update/<int:pk>/', FornecedorUpdate.as_view(), name='fornecedor-update' ),
@@ -24,7 +25,7 @@ urlpatterns = [
     path('cliente/excluir/<int:pk>/', ClienteDelete.as_view(), name='excluir-cliente' ),
     path('fornecedor/excluir/<int:pk>/', FornecedorDelete.as_view(), name='excluir-fornecedor' ),
     #LISTA
-    path('', FormularioLista.as_view(), name='listar' ),
+    path('lista/formulario/', FormularioLista.as_view(), name='listar' ),
     path('tipo/listar', TipoLista.as_view(), name='listar-tipo' ),
     path('cliente/listar', ClienteLista.as_view(), name='listar-cliente' ),
     path('fornecedor/listar', FornecedorLista.as_view(), name='listar-fornecedor' ),

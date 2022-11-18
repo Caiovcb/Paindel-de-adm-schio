@@ -45,8 +45,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         {% if request.user.is_authenticated %}
-        <ul class="navbar-nav">
-            <a class=" btn btn-light nav-link mr-sm-2 " href="{% url 'listar' %}">Inicio</a>
+        <li>
+            <ul class="navbar-nav">
+                <a class=" btn btn-light nav-link mr-sm-2 " href=" {% url 'listar' %}">Inicio</a>
+            
+        </li>
         {% endif %}
         {% if request.user.is_authenticated %}
         <li>
@@ -92,7 +95,7 @@
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}                        
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn btn-success text-white" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle btn btn-dark text-white" href="#" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="username">{{ request.user }}</span>
                     </a>
@@ -105,7 +108,7 @@
                 </li>
                 {% else %}
                 <li class="nav-item  ">
-                    <a class="nav-link text-black" href="{% url 'login' %}">
+                    <a class="nav-link text-black" href="{% url 'registrar' %}">
                         Registrar</a>
                 </li>
                 <li class="nav-item ">

@@ -8,19 +8,23 @@
     <h3><b>Formularios Registrados</b></h3>
     </div>
 <div>
+    <form action="?" method="GET"></form>
 
-<form action="?" method="GET"></form>
-
-    <input type="text" name="tipo" id="" value=" {{ request.GET.tipo }}" class="p-1 border" 
-    autocomplete="off" size="30" placeholder="Busca">
-    <button type="submit" class="btn btn-primary">Buscar</button>
-    <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
-
-    <a href="{% url 'cadastro' %}" style="position: relative; left: 300px;"class="btn btn-success">cadastrar novo formulario</a>
+        <div class="container">
+            <div class="row">
+            <div class="col"><input type="text" name="tipo" value=" {{ request.GET.tipo }}" class="p-1 border" autocomplete="off" size="30" placeholder="Busca"></div>
+            <div class="col"><button type="submit" class="btn btn-primary">Buscar</button>
+                <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
+            </div>
+            <div class="col"></div>
+            <div class="col"><a href="{% url 'cadastro' %}" class="btn btn-success">cadastrar novo formulario</a></div>
+            </div>
+        </div>
+</div>
 
 <hr>
 
-<div class="table responsive"></div>
+<div class="table responsive">
     <table class="table table-striped " border="2px">
 
         <tr>            
@@ -44,6 +48,8 @@
             <td>{{ formulario.nome }}</td>
             <td>
                 <center>
+                <a href="{% url 'ver-form' formulario.pk %}" class="btn btn-dark btn-sm" 
+                    title="Ver">Ver</a>
                 <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" 
                     title="Editar">Editar</a>
                 <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm " 

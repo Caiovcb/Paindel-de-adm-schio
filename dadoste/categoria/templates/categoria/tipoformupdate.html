@@ -10,22 +10,22 @@
   <h3><b>Editando Tipo</b></h3>
   </div>
 <div>
-
-
-    <hr>
-      <form action="" method="POST">
-
-        {% csrf_token %}
-
-        {{ form|crispy }}
-        <hr class="">
-
-        <center>
-          <button type="submite"class="btn btn-warning">Salvar Alteraçoẽs</button></button>
-          <a href="{% url 'listar-tipo' %}" class="btn btn-dark">voltar</a>
-        </center>
-        
-    </form>
-    </table>
+<hr>
+<form action="" method="POST">
+  {% csrf_token %}
+  <div hidden>
+    {{ form.nome|as_crispy_field }}
+  </div>
+  <div class="row justify-content-center ">
+    <div class="col-2 py-2"><b>{{ form.nome.label }}</b></div>
+    <div class="col-6 py-2">{{ form.nome }}</div>
+  </div>
+  <hr>
+  <div class="row justify-content-center ">
+    <div>    
+      <button type="submite" class="btn btn-warning">Salvar Aletaraçoes</button></button>
+      <a href="{% url 'listar-tipo' %}" class="btn btn-dark">voltar</a>
+  </div>
+</form>
 </div>
 {% endblock %}

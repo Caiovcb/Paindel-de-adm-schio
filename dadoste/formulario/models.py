@@ -18,8 +18,7 @@ class Formularios(models.Model):
         max_length=14,null=True, blank=True, verbose_name='Telefone', )
     email = models.EmailField(
         max_length=70,verbose_name='Email', null=True , blank=True)
-    validacao_contrato = models.CharField(
-        max_length=14,null=True,
+    validacao_contrato = models.DateField(null=True,
         blank=True, verbose_name='Validação de contrato')
     validade_certificacao = models.DateField(
         null=True, blank=True, verbose_name='Validade de certificação')

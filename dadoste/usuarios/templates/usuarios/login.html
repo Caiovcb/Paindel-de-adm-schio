@@ -16,7 +16,7 @@
   <h3><b>Login</b></h3>
   </div>
 <div>
-
+<hr>
 <div class="row">
     <div class="col-md-5 mx-auto">
         <form action="" method="POST">
@@ -25,17 +25,15 @@
 
             {{ form|crispy }}          
 
-
-            <button type="submite"class="btn btn-success">Entrar</button></button>
-
+            <div class="row justify-content-center ">
+                <div>                  
+                  <button type="submite" class="btn btn-success">Entrar</button></button>
+                  <a href="{% url 'registrar' %}" class="btn btn-dark">Registrar</a>
+                </div>
+            </div>
+<p></p>
         </form>
     </div>
 </div>
-
-</div>
-</div>
-</div>
-</div>
-{% endblock %}
-{% block rodape %}
+<hr>
 {% endblock %}

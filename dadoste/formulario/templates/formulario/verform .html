@@ -7,15 +7,14 @@
 {% block conteudo %}
 
     <div class="txt" style="text-align: center;" >
-      <h3><b>Editando Formulario</b></h3>
+      <h3><b>Visualisando Formulario</b></h3>
     </div>
     <hr>
     <div class="row">
       <div class="container">
           <form action="" method="POST">
             <div class="row justify-content-center ">
-              <div>                  
-                <button type="submite" class="btn btn-warning">Salvar Alteraçoes</button></button>
+              <div>
                 <a href="{% url 'listar' %}" class="btn btn-dark">voltar</a>
               </div>
 
@@ -86,14 +85,13 @@
               <div class="row justify-content-center">
                 <div class="col-2 py-2"><b>{{ form.descricao.label }}</b></div>
                 <div class="col-6 py-2">{{ form.descricao }}</div>
-              </div>
-        <center>
-        <button type="submite"  class="btn btn-warning">Salvar Alteraçoes</button></button>
-        </center>     
-      </p>
+              </div>  
 
-      
+              <div class="row justify-content-center ">
+                <div>
+                  <a href="{% url 'listar' %}" class="btn btn-dark">voltar</a>
+              </div>      
       </form>
-    </table>
+
 </div>
 {% endblock %}

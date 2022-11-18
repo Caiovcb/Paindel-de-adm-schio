@@ -3,25 +3,24 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from rest_framework.decorators import api_view
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from rest_framework import generics
-from rest_framework import status
 from dadoste.formulario.models import Formularios
 from dadoste.formulario.serializers import FormularioSerializers
-from rest_framework.exceptions import NotFound
+
 
 ########## CREATE ###########
 
-class FormularioCreate(CreateView):
+class FormularioCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Formularios
     fields=[
         'tipo',
         'cliente',
         'fornecedor',
-        'cnpj',
         'nome',
+        'cnpj',
         'nr_contato',
         'email',
         'validacao_contrato',
@@ -33,14 +32,15 @@ class FormularioCreate(CreateView):
 
 ########## UPDATE ###########
 
-class FormularioUpdate(UpdateView):
+class FormularioUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Formularios
     fields=[
         'tipo',
         'cliente',
         'fornecedor',
-        'cnpj',
         'nome',
+        'cnpj',
         'nr_contato',
         'email',
         'validacao_contrato',
@@ -50,9 +50,29 @@ class FormularioUpdate(UpdateView):
     template_name = 'formulario/editarform.html'
     success_url = reverse_lazy('listar')
 
+class FormularioVer(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Formularios
+    fields=[
+        'tipo',
+        'cliente',
+        'fornecedor',
+        'nome',
+        'cnpj',
+        'nr_contato',
+        'email',
+        'validacao_contrato',
+        'validade_certificacao',
+        'descricao',        
+    ]
+    template_name = 'formulario/editarform.html'
+    success_url = reverse_lazy('listar')
+    
+
 ########## DELETE ###########
 
-class FormularioDelete(DeleteView):
+class FormularioDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Formularios
     template_name = 'formulario/form-excluir.html'
     success_url = reverse_lazy('listar')
@@ -60,7 +80,8 @@ class FormularioDelete(DeleteView):
 
 ########## LIST ###########
 
-class FormularioLista(ListView):
+class FormularioLista(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Formularios
     template_name = 'formulario/listas/formulario.html'
 

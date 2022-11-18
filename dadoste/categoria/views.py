@@ -1,10 +1,12 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Tipo, Cliente, Fornecedor
 from django.urls import reverse_lazy
 
-class TipoCreate(CreateView):
+class TipoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Tipo
     fields=[
         'nome',     
@@ -12,7 +14,8 @@ class TipoCreate(CreateView):
     template_name = 'categoria/tipoform.html'
     success_url = reverse_lazy('listar-tipo')
 
-class ClienteCreate(CreateView):
+class ClienteCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Cliente
     fields=[
         'nome',     
@@ -20,7 +23,8 @@ class ClienteCreate(CreateView):
     template_name = 'categoria/clienteform.html'
     success_url = reverse_lazy('listar-cliente')
 
-class FornecedorCreate(CreateView):
+class FornecedorCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Fornecedor
     fields=[
         'nome',     
@@ -30,7 +34,8 @@ class FornecedorCreate(CreateView):
 
 #UPDATE#
 
-class TipoUpdate(UpdateView):
+class TipoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Tipo
     fields=[
         'nome',     
@@ -38,7 +43,8 @@ class TipoUpdate(UpdateView):
     template_name = 'categoria/tipoformupdate.html'
     success_url = reverse_lazy('listar-tipo')
 
-class ClienteUpdate(UpdateView):
+class ClienteUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Cliente
     fields=[
         'nome',     
@@ -46,7 +52,8 @@ class ClienteUpdate(UpdateView):
     template_name = 'categoria/clienteformupdate.html'
     success_url = reverse_lazy('listar-cliente')
 
-class FornecedorUpdate(UpdateView):
+class FornecedorUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Fornecedor
     fields=[
         'nome',     
@@ -56,31 +63,37 @@ class FornecedorUpdate(UpdateView):
 
 #DELETE#
     
-class TipoDelete(DeleteView):
+class TipoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Tipo
     template_name = 'categoria/tipoformdelete.html'
     success_url = reverse_lazy('listar-tipo')
 
-class ClienteDelete(DeleteView):
+class ClienteDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Cliente
     template_name = 'categoria/clienteformdelete.html'
     success_url = reverse_lazy('listar-cliete')
 
-class FornecedorDelete(DeleteView):
+class FornecedorDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Fornecedor
     template_name = 'categoria/fornecedorformdelete.html'
     success_url = reverse_lazy('listar-fornecedor')
 
 #### LISTA   ##########
 
-class TipoLista(ListView):
+class TipoLista(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Tipo
     template_name = 'categoria/listas/listatipo.html'
 
-class ClienteLista(ListView):
+class ClienteLista(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Cliente
     template_name = 'categoria/listas/listaclientes.html'
 
-class FornecedorLista(ListView):
+class FornecedorLista(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Fornecedor
     template_name = 'categoria/listas/listafornecedor.html'
