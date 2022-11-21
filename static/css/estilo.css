@@ -1,1 +1,12 @@
 
+
+.message {
+    padding: 19px 60px;
+    position: fixed;
+    top: 20px;
+    right: 105px ;
+    background-color: green;
+    border-radius: 3px;
+    color: rgb(252, 252, 252);
+
+};

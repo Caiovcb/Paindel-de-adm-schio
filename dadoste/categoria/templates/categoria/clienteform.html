@@ -15,17 +15,13 @@
   <form action="" method="POST">
 
     {% csrf_token %}
-  
-    <div hidden>
-      {{ form.nome|as_crispy_field }}
+    <div class="row justify-content-center">
+      <div class="col-6">
+        {{ form|crispy }}
+      </div>
     </div>
-    <div class="row justify-content-center ">
-      <div class="col-2 py-2"><b>{{ form.nome.label }}</b></div>
-      <div class="col-6 py-2">{{ form.nome }}</div>
-    </div>
-    <hr>
-    <div class="row justify-content-center ">
-      <div>    
+    <div class="row justify-content-center">
+      <div>      
         <button type="submite" class="btn btn-success">Cadastrar</button></button>
         <a href="{% url 'listar-cliente' %}" class="btn btn-dark">voltar</a>
       </div>

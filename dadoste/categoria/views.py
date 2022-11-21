@@ -12,7 +12,7 @@ class TipoCreate(LoginRequiredMixin, CreateView):
         'nome',     
     ]
     template_name = 'categoria/tipoform.html'
-    success_url = reverse_lazy('listar-tipo')
+    success_url = reverse_lazy('tipo-cadastro')
 
 class ClienteCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
