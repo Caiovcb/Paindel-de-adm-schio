@@ -65,7 +65,7 @@ class FormularioVer(LoginRequiredMixin, UpdateView):
         'validade_certificacao',
         'descricao',        
     ]
-    template_name = 'formulario/editarform.html'
+    template_name = 'formulario/verform.html'
     success_url = reverse_lazy('listar')
     
 
