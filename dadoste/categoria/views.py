@@ -21,7 +21,7 @@ class ClienteCreate(LoginRequiredMixin, CreateView):
         'nome',     
     ]
     template_name = 'categoria/clienteform.html'
-    success_url = reverse_lazy('listar-cliente')
+    success_url = reverse_lazy('cliente-cadastro')
 
 class FornecedorCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -30,7 +30,7 @@ class FornecedorCreate(LoginRequiredMixin, CreateView):
         'nome',     
     ]
     template_name = 'categoria/fornecedorform.html'
-    success_url = reverse_lazy('listar-fornecedor')
+    success_url = reverse_lazy('fornecedor-cadastro')
 
 #UPDATE#
 
@@ -73,7 +73,7 @@ class ClienteDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     model = Cliente
     template_name = 'categoria/clienteformdelete.html'
-    success_url = reverse_lazy('listar-cliete')
+    success_url = reverse_lazy('listar-cliente')
 
 class FornecedorDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')

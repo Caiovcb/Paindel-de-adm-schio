@@ -3,68 +3,123 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
+<div class="container">
 
-<div class="txt" style="text-align: center;" >
-    <h3><b>Formularios Registrados</b></h3>
+    <div class="txt" style="text-align: center;" >
+        <h3><b>Formularios Registrados</b></h3>
     </div>
-<div>
-    <form action="?" method="GET"></form>
-
-        <div class="container">
-            <div class="row">
-            <div class="col"><input type="text" name="tipo" value=" {{ request.GET.tipo }}" class="p-1 border" autocomplete="off" size="30" placeholder="Busca"></div>
-            <div class="col"><button type="submit" class="btn btn-primary">Buscar</button>
-                <a href="{% url 'listar' %}" class="btn btn-light">limpar</a>
+    <div>
+        <form action="?" method="GET"></form>
+            <div class="container">
+                <div class="row justify-content-center ">
+                <a href="{% url 'cadastro' %}" class="btn btn-success">cadastrar novo formulario</a></div>
+                </div>
             </div>
-            <div class="col"></div>
-            <div class="col"><a href="{% url 'cadastro' %}" class="btn btn-success">cadastrar novo formulario</a></div>
-            </div>
-        </div>
-</div>
+    </div>
 
-<hr>
+    <div class="table responsive">
+        <table class="table table-striped" id="tabela-listar" border="3px">
+            <thead>
+                <tr>            
+                    <th width="20%" height="40"><center>Tipo  
+                        <a href="{% url 'tipo-cadastro' %}" class="btn btn-success btn-sm"
+                            title="Editar"><b>+</b></a></a></center></th>
+                        <th width="25%" height="40"><center>Cliente  
+                            <a><a href="{% url 'cliente-cadastro' %}" class="btn btn-success btn-sm" 
+                                title="Editar"><b>+</b></a></a></center></th>
+                        <th width="20%" height="40"><center>Fornecedor  
+                            <a><a href="{% url 'fornecedor-cadastro' %}" class="btn btn-success btn-sm" 
+                            title="Editar"><b>+</b></a></a></center></th>
+                        <th width="15%" height="40"><center>Nome</center></th>
+                        <th width="20%" height="40"><center>Opçoẽs</center></th>            
+                    </tr>
+            </thead>
+            <tbody>
+                {% for formulario in object_list %}
+                <tr>
+                    <td>{% if formulario.tipo == None %}
+                        {{ . }}
+                     {% else %}
+                        {{ formulario.tipo }}
+                        {% endif %}
+                    </td>    
+                    <td> {% if formulario.cliente == None %}
+                            {{ . }}
+                         {% else %}
+                            {{ formulario.cliente }}
+                            {% endif %}
+                    </td>
+                    <td>{% if formulario.fornecedor == None %}
+                            {{ . }}
+                        {% else %}
+                            {{ formulario.fornecedor }}
+                        {% endif %}
+                    </td>                     
+                    <td>{% if formulario.nome == None %}
+                            {{ . }}
+                        {% else %}
+                            {{ formulario.nome }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <center>
+                        <a href="{% url 'ver-form' formulario.pk %}" class="btn btn-dark btn-sm" 
+                            title="Ver">Ver</a>
+                        <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" 
+                            title="Editar">Editar</a>
+                        <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm " 
+                        title="Excluir">Excluir</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">Nenhum registro!</td> ></td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
-<div class="table responsive">
-    <table class="table table-striped " border="2px">
-        <thead>
-            <tr>            
-                <th width="20%" height="40"><center>Tipo  
-                    <a href="{% url 'tipo-cadastro' %}" class="btn btn-success btn-sm"
-                    title="Editar"><b>+</b></a></a></center></th>
-                <th width="25%" height="40"><center>Cliente  
-                    <a><a href="{% url 'cliente-cadastro' %}" class="btn btn-success btn-sm" 
-                        title="Editar"><b>+</b></a></a></center></th>
-                <th width="20%" height="40"><center>Fornecedor  
-                    <a><a href="{% url 'fornecedor-cadastro' %}" class="btn btn-success btn-sm" 
-                        title="Editar"><b>+</b></a></a></center></th>
-                <th width="15%" height="40"><center>Nome</center></th>
-                <th width="20%" height="40"><center>Opçoẽs</center></th>            
-            </tr>
-        </thead>
-        <tbody>
-            {% for formulario in object_list %}
-            <tr>
-                <td height="">{{ formulario.tipo }}</td>    
-                <td>{{ formulario.cliente }}</td>
-                <td>{{ formulario.fornecedor }}</td>
-                <td>{{ formulario.nome }}</td>
-                <td>
-                    <center>
-                    <a href="{% url 'ver-form' formulario.pk %}" class="btn btn-dark btn-sm" 
-                        title="Ver">Ver</a>
-                    <a href="{% url 'update' formulario.pk %}" class="btn btn-warning btn-sm" 
-                        title="Editar">Editar</a>
-                      <a href="{% url 'excluir' formulario.pk %}" class="btn btn-danger btn-sm " 
-                    title="Excluir">Excluir</a>
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">Nenhum registro!</td> ></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-
-    </table>
+        </table>
+    
 {% endblock %}
 
+{% block scripts %}
+<script>
+    
+    $(document).ready(function(){
+
+        $('#tabela-listar').DataTable({
+        responsive: true,
+        // "bSort": false,
+        "aaSorting": [],
+        "pageLength": 50,
+        "language": {
+            "decimal": "",
+            "emptyTable": "Sem dados disponíveis",
+            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+            "infoFiltered": "(filtrado de _MAX_registos no total)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ registos",
+            "loadingRecords": "A carregar dados...",
+            "processing": "A processar...",
+            "search": "Procurar:",
+            "zeroRecords": "Não foram encontrados resultados",
+            "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Seguinte",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": ordem crescente",
+                "sortDescending": ": ordem decrescente"
+            }
+        }
+    });
+    
+    
+    });
+
+</script>
+{% endblock %}
