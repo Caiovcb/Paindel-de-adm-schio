@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'dadoste.usuarios',
-    'widget_tweaks',
 ]
 
 # CRISPY Forms
