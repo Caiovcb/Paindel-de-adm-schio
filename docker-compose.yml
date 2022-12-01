@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   painel-adm:
-    image: painel-adm:1.0
+    image: painel-adm
     container_name: painel-adm
     networks:
       - compose-bridge
