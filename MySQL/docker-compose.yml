@@ -9,7 +9,7 @@ services:
     container_name: database
 
   painel-adm:
-    image: caiovcb/painel-adm:1.4
+    image: caiovcb/painel-adm:1.6
     container_name: django
     networks:
       - compose-bridge
