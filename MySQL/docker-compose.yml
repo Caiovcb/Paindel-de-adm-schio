@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  database:
+    build: .
+    ports:
+      - "3306:3306"
+    networks:
+      - compose-bridge
+    container_name: database
+
+  painel-adm:
+    image: caiovcb/painel-adm:1.4
+    container_name: django
+    networks:
+      - compose-bridge
+    ports:
+      - 8000:8000
+    depends_on:
+      - database  
+
+  
+networks:
+  compose-bridge:
+    driver: bridge
+    
